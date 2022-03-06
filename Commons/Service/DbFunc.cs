@@ -21,6 +21,7 @@ namespace Common.Service.DbFunc
         {
             var configuation = GetConfiguration();
             con = new MySqlConnection(configuation.GetSection("ConnectionStrings").GetSection("db").Value);
+            con.Open();
         }
         public static IConfigurationRoot GetConfiguration()
         {
