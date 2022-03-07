@@ -8,6 +8,8 @@ using System.Web;
 using Microsoft.AspNetCore.Authentication;
 using AutoMapper;
 using API.Helpers;
+using System;
+
 namespace API.Controllers
 {
 
@@ -27,10 +29,11 @@ namespace API.Controllers
         [Produces("application/json")]
         public async Task<IActionResult> GetAllUsers()
         {
+            throw new Exception("ทดสอบ");
+            return Ok();
 
-
-            UserService u = new UserService(_mapper);
-            return Ok(u.GetAllByEf());
+            //UserService u = new UserService(_mapper);
+            //return Ok(u.GetAllByEf());
 
 
 

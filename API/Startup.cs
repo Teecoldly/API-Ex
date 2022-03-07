@@ -19,7 +19,11 @@ using Microsoft.IdentityModel.Tokens;
 using API.Helpers;
 using Microsoft.OpenApi.Models;
 using Commons.Profile;
-using API.Middleware;
+
+using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Http;
+using System.Text.Json;
+
 namespace API
 {
 
@@ -83,7 +87,29 @@ namespace API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseMiddleware<Midware>();
+            app.UseExceptionHandler(
+                 options =>
+                         {
+                             options.Run(async context =>
+                             {
+                                 context.Response.ContentType = "application/json";
+                                 context.Response.StatusCode = (int)200;
+                                 var exceptionObject = context.Features.Get<IExceptionHandlerFeature>();
+                                 if (null != exceptionObject)
+                                 {
+                                     var response = env.IsDevelopment() ? new AppException(context.Response.StatusCode, exceptionObject.Error.Message, exceptionObject.Error.StackTrace?.ToString())
+                                 : new AppException(context.Response.StatusCode, "กรุณาติดต่อแอดมิน");
+                                     LineNotifyHelper.SendWait(exceptionObject.Error.Message + "text:" + exceptionObject.Error.StackTrace?.ToString(), true);
+                                     var option = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
+                                     var json = JsonSerializer.Serialize(response, option);
+                                     await context.Response.WriteAsync(json);
+
+                                 }
+
+                             });
+                         }
+                     );
+
             if (env.IsDevelopment())
             {
                 app.UseSwagger();

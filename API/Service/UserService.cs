@@ -155,9 +155,9 @@ namespace API.App.Service
         }
         public dynamic GetAllByEf()
         {
-
-            var result = new DB<Users>(Mapper).Get().QueryPage<UsersEntity>(1, 1, null);
-            return result;
+            throw new Exception("test");
+            //var result = new DB<Users>(Mapper).Get().QueryPage<UsersEntity>(1, 1, null);
+            //return result;
 
 
         }
