@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.810.10
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCoreWork", "EFCoreWork\EFCoreWork.csproj", "{22AF1513-A6B1-4161-802D-FFEF2EBF729F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataDB", "DataDB\DataDB.csproj", "{44286469-40E3-44B9-8BB1-44CF1326D88F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22AF1513-A6B1-4161-802D-FFEF2EBF729F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22AF1513-A6B1-4161-802D-FFEF2EBF729F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22AF1513-A6B1-4161-802D-FFEF2EBF729F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22AF1513-A6B1-4161-802D-FFEF2EBF729F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44286469-40E3-44B9-8BB1-44CF1326D88F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44286469-40E3-44B9-8BB1-44CF1326D88F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44286469-40E3-44B9-8BB1-44CF1326D88F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44286469-40E3-44B9-8BB1-44CF1326D88F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E581D287-C906-4373-8ADE-801544BFF22D}
+	EndGlobalSection
+EndGlobal
